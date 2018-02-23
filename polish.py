@@ -58,6 +58,9 @@ class TestRpn(unittest.TestCase):
     def testSub(self):
         self.assertEqual(parseInput("1 2 /"), 0.5)
 
+    def test10Div(self):
+        self.assertEqual(parseInput("10 2 /"), 5)
+
 def main():
     unittest.main()
 
