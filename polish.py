@@ -5,8 +5,6 @@ def parseInput(input):
 	    return input
 	return input
 
-
-# Here's our "unit tests".
 class IsOddTests(unittest.TestCase):
 
     def testOne(self):
