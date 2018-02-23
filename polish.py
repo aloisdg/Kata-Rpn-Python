@@ -5,8 +5,9 @@ def eval(inputs):
 	result = 0
 	for i in inputs:
 		if i.isdigit():
-			stack.insert(0, i)
-	return sum(stack)
+			stack.insert(0, int(i))
+	result = sum(stack)
+	return result
 
 def parseInput(input):
 	if " " not in input:
