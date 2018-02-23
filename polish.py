@@ -1,9 +1,12 @@
 import unittest
 
-def eval(input):
+def eval(inputs):
 	stack = []
 	result = 0
-	return sum([int(y) for y in input])
+	for i in inputs:
+		if i.isdigit():
+			stack.insert(0, i)
+	return sum(stack)
 
 def parseInput(input):
 	if " " not in input:
