@@ -26,7 +26,7 @@ def parseInput(input):
 	    return input
 	return eval(input.split(' '))
 
-class IsOddTests(unittest.TestCase):
+class TestRpn(unittest.TestCase):
 
     def testOne(self):
         self.assertEqual(parseInput("1"), "1")
