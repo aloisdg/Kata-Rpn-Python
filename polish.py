@@ -3,7 +3,7 @@ import unittest
 def eval(input):
 	stack = []
 	result = 0
-	return 0
+	return result
 
 def parseInput(input):
 	if " " not in input:
