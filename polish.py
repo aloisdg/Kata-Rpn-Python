@@ -37,6 +37,9 @@ class IsOddTests(unittest.TestCase):
     def testSub(self):
         self.assertEqual(parseInput("2 1 -"), 1)
 
+    def testSubZero(self):
+        self.assertEqual(parseInput("1 2 -"), -1)
+
     def testMul(self):
         self.assertEqual(parseInput("1 2 *"), 2)
 
