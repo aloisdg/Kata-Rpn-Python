@@ -5,7 +5,7 @@ import operator
 ops = {'+': operator.add,
        '-': operator.sub,
        '*': operator.mul,
-       '/': operator.floordiv,
+       '/': operator.truediv,
        '^': operator.pow}
 
 def eval(inputs):
@@ -13,10 +13,10 @@ def eval(inputs):
 	result = 0
 	for i in inputs:
 		if i.isdigit():
-			stack.insert(0, int(i))
+			stack.insert(0, float(i))
 		else:
-			a = int(stack.pop(1))
-			b = int(stack.pop(0))
+			a = float(stack.pop(1))
+			b = float(stack.pop(0))
 			result = ops[i](a, b)
 			stack.insert(0, result)
 	return result
@@ -54,6 +54,9 @@ class TestRpn(unittest.TestCase):
 
     def testRpn(self):
         self.assertEqual(parseInput("6 4 5 + * 25 2 3 + / -"), 49)
+
+    def testSub(self):
+        self.assertEqual(parseInput("1 2 /"), 0.5)
 
 def main():
     unittest.main()
