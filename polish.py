@@ -15,6 +15,10 @@ def isFloat(value):
   except ValueError:
     return False
 
+def preventCthulhu(operand, value):
+	if operand == '/' and value == 0:
+		raise ZeroDivisionError("OMG")
+
 def eval(inputs):
 	stack = []
 	result = 0
@@ -24,6 +28,7 @@ def eval(inputs):
 		else:
 			a = float(stack.pop(1))
 			b = float(stack.pop(0))
+			preventCthulhu(ops[i], b)
 			result = ops[i](a, b)
 			stack.insert(0, result)
 	return result
@@ -70,6 +75,9 @@ class TestRpn(unittest.TestCase):
 
     def testDoubleDiv(self):
         self.assertEqual(parseInput("4.2 2 /"), 2.1)
+
+    def testSummonCthulhu(self):
+        self.assertRaises(ZeroDivisionError, parseInput, "1 0 /")
 
 def main():
     unittest.main()
