@@ -49,6 +49,9 @@ class TestRpn(unittest.TestCase):
     def testPow(self):
         self.assertEqual(parseInput("2 1 ^"), 2)
 
+    def testAddSub(self):
+        self.assertEqual(parseInput("2 1 + 3 -"), 0)
+
 def main():
     unittest.main()
 
