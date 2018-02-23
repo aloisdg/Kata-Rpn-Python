@@ -3,7 +3,7 @@ import unittest
 def eval(input):
 	stack = []
 	result = 0
-	return [int(y) for y in input]
+	return sum([int(y) for y in input])
 
 def parseInput(input):
 	if " " not in input:
@@ -16,7 +16,7 @@ class IsOddTests(unittest.TestCase):
         self.assertEqual(parseInput("1"), "1")
 
     def testOneSpaceTab(self):
-        self.assertEqual(parseInput("1 2"), [1,2])
+        self.assertEqual(parseInput("1 2"), 3)
 
 def main():
     unittest.main()
