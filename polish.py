@@ -6,18 +6,15 @@ def eval(input):
 def parseInput(input):
 	if " " not in input:
 	    return input
-	return eval(input.split(' ')[0])
+	return eval(input.split(' '))
 
 class IsOddTests(unittest.TestCase):
 
     def testOne(self):
         self.assertEqual(parseInput("1"), "1")
 
-    def testOneSpace(self):
-        self.assertEqual(parseInput("1 2"), "1")
-
-    def testOneSpace(self):
-        self.assertEqual(parseInput("1 2"), "1")
+    def testOneSpaceTab(self):
+        self.assertEqual(parseInput("1 2"), ["1","2"])
 
 def main():
     unittest.main()
