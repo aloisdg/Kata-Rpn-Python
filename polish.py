@@ -5,7 +5,7 @@ import operator
 ops = {'+': operator.add,
        '-': operator.sub,
        '*': operator.mul,
-       #'/': operator.div,
+       '/': operator.floordiv,
        '^': operator.pow}
 
 def eval(inputs):
@@ -40,8 +40,8 @@ class IsOddTests(unittest.TestCase):
     def testMul(self):
         self.assertEqual(parseInput("1 2 *"), 2)
 
-   # def testDiv(self):
-    #    self.assertEqual(parseInput("2 1 /"), 2)
+    def testDiv(self):
+        self.assertEqual(parseInput("2 1 /"), 2)
 
     def testPow(self):
         self.assertEqual(parseInput("2 1 ^"), 2)
