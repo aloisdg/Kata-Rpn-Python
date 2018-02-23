@@ -8,11 +8,18 @@ ops = {'+': operator.add,
        '/': operator.truediv,
        '^': operator.pow}
 
+def isFloat(value):
+  try:
+    float(value)
+    return True
+  except ValueError:
+    return False
+
 def eval(inputs):
 	stack = []
 	result = 0
 	for i in inputs:
-		if i.isdigit():
+		if isFloat(i):
 			stack.insert(0, float(i))
 		else:
 			a = float(stack.pop(1))
@@ -60,6 +67,9 @@ class TestRpn(unittest.TestCase):
 
     def test10Div(self):
         self.assertEqual(parseInput("10 2 /"), 5)
+
+    def testDoubleDiv(self):
+        self.assertEqual(parseInput("4.2 2 /"), 2.1)
 
 def main():
     unittest.main()
