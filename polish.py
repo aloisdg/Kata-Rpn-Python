@@ -8,6 +8,7 @@ ops = {'+': operator.add,
        '/': operator.truediv,
        '^': operator.pow}
 
+# isinstance(x, float) maybe?
 def isFloat(value):
   try:
     float(value)
